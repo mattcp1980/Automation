@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mattcp1980/Automation/issues"
   },
-  "homepage": "https://github.com/mattcp1980/Automation#readme"
+  "homepage": "https://github.com/mattcp1980/Automation#readme",
+  "devDependencies": {
+    "cypress": "^6.0.0"
+  }
 }
