@@ -1,0 +1,19 @@
+{
+  "name": "automation-playground",
+  "version": "0.0.1",
+  "description": "A playground to try out automation ideas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattcp1980/Automation.git"
+  },
+  "author": "Matthew Parker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattcp1980/Automation/issues"
+  },
+  "homepage": "https://github.com/mattcp1980/Automation#readme"
+}
