@@ -1,4 +1,5 @@
 // <reference types="cypress" />
+//NOTE running or opening cypress will need to be prefixed with CYPRESS_password=****** where ****** is the password
 
 describe('Login to the site', () => {
     beforeEach(() => {
@@ -7,6 +8,7 @@ describe('Login to the site', () => {
 
         //pull in user fixture data
         cy.fixture('users.json').as('users')
+        
     })
     it('includes a sign in link', () => { 
         cy.get('.login').contains('Sign in')
@@ -16,13 +18,18 @@ describe('Login to the site', () => {
         cy.contains('Authentication')
     })
     it('logs the user in when entering valid details', function() {
+        //pass in password as an environment variable
+        const password = Cypress.env('password')
+        if (typeof password !== 'string' || !password) {
+            throw new Error('Missing password value, set using CYPRESS_password=...')
+        }
         //loop through the users to check multiple users logging in
         cy.get('@users').each((user) =>{
 
             //load the login page and enter each users details from the fixture file
             cy.get('.login').click()
             cy.get('#email').type(user.email)
-            cy.get('#passwd').type('mat28par')
+            cy.get('#passwd').type(password, {log:false})
             cy.get('#SubmitLogin > span').click()
             
             //check that the first name and last name are displayed correctly for each user
@@ -63,11 +70,15 @@ describe('Login to the site', () => {
         })
     })
     it('checks that UNKNOWN email provides the correct validation', () => {
-
+        //pass in password as an environment variable
+        const password = Cypress.env('password')
+        if (typeof password !== 'string' || !password) {
+            throw new Error('Missing password value, set using CYPRESS_password=...')
+        }
         //load the login page and enter the first user login details
         cy.get('.login').click()
         cy.get('#email').type('mattp1980invalid@virginmedia.com')
-        cy.get('#passwd').type('mat28par')
+        cy.get('#passwd').type(password, {log:false})
         cy.get('#SubmitLogin > span').click()
 
         //check that the Authentication failed message is displayed
@@ -75,11 +86,15 @@ describe('Login to the site', () => {
         
     })
     it('checks that INVALID email provides the correct validation', () => {
-
+        //pass in password as an environment variable
+        const password = Cypress.env('password')
+        if (typeof password !== 'string' || !password) {
+            throw new Error('Missing password value, set using CYPRESS_password=...')
+        }
         //load the login page and enter the first user login details
         cy.get('.login').click()
         cy.get('#email').type('invaliduser')
-        cy.get('#passwd').type('mat28par')
+        cy.get('#passwd').type(password, {log:false})
         cy.get('#SubmitLogin > span').click()
 
         //check that the Authentication failed message is displayed
