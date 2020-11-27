@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "Product": "Printed Chiffon Dress",
+    "Price": "$16.40"
+  },
+  {
+    "id": 2,
+    "Product": "Printed Dress",
+    "Price": "$26.00"
+  },
+  {
+    "id": 3,
+    "Product": "Printed Dress",
+    "Price": "$50.99"
+  },
+  {
+    "id": 4,
+    "Product": "Printed Summer Dress",
+    "Price": "$28.98"
+  },
+  {
+    "id": 5,
+    "Product": "Faded Short Sleeve T-shirts",
+    "Price": "$16.51"
+  },
+  {
+    "id": 5,
+    "Product": "Blouse",
+    "Price": "$27.00"
+  }
+]
