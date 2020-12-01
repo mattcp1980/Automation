@@ -18,6 +18,11 @@ describe('Complete an product search', () => {
         cy.contains('No results were found for your search').should('not.exist')
         cy.get('.lighter').contains('Dress')
     })
+    it('enters a random value that should yield no results', () =>{
+        cy.get('#search_query_top').type('rainbow {enter}')
+        cy.get('#searchbox > .btn').click()
+        cy.contains('No results were found for your search')        
+    })
     it('checks specific products searched for by pressing enter return correct products', function() {
         //Loop through each product in the collection
         cy.get('@products').each((product) =>{
